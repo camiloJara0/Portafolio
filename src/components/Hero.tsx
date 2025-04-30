@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
 
       <a 
         href="#about" 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-blue-800 dark:text-white"
+        className="absolute bottom-10 transform -translate-x-1/2 animate-bounce text-blue-800 dark:text-white"
         aria-label="Scroll down"
       >
         <ChevronDown size={32} />

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Phone, Mail, MapPin, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 interface FormState {
   name: string;
@@ -13,7 +14,9 @@ const Contact: React.FC = () => {
     email: '',
     message: ''
   });
-  
+
+
+  const form = useRef<HTMLFormElement>(null);
   const [errors, setErrors] = useState<Partial<FormState>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -51,7 +54,14 @@ const Contact: React.FC = () => {
     
     // Simulate form submission
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await emailjs.sendForm(
+        'service_87i0tqs',
+        'template_j2ii3f6',
+        form.current!,
+        {
+          publicKey: 'vpeXqDF4WYaSSpC1H',
+        }
+      );
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
@@ -137,7 +147,7 @@ const Contact: React.FC = () => {
             <div className="p-8 md:p-12">
               <h3 className="text-2xl font-bold mb-6 text-blue-900 dark:text-white">Enviar Mensaje</h3>
               
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} ref={form}>
                 <div className="mb-6">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                     Nombre
