@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold mb-4">Camilo Jaramillo</h3>
             <p className="text-blue-200 dark:text-gray-400 mb-4 max-w-md">
-              Desarrollador Full Stack apasionado por crear aplicaciones web funcionales que brinden experiencias de usuario excepcionales.
+              Desarrollador Frontend apasionado por crear aplicaciones web funcionales que brinden experiencias de usuario excepcionales.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/camiloJara0?tab=overview&from=2024-12-01&to=2024-12-31" target="_blank" className="text-blue-200 hover:text-white transition-colors">
